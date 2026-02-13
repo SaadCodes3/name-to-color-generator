@@ -1,0 +1,161 @@
+/* احسب العرض شامل ال paddin + border  = widht = all browser */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+
+  background: linear-gradient(135deg, #2ec4b6, #5e60ce, #ff006e, #ff9f1c);
+
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+}
+
+/* حركة الجريدينت */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* أشكال بلور عايمة */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.6;
+  z-index: -1;
+}
+
+body::before {
+  background: #00f5d4;
+  top: 100px;
+  left: 100px;
+}
+
+.card {
+  width: 400px;
+  padding: 40px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+
+  text-align: center;
+  color: white;
+}
+
+.card h2 {
+  text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+input {
+  width: 90%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  text-align: center;
+}
+
+button {
+  width: 80%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff);
+  transition: 0.3s;
+  box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.divider {
+  margin: 25px 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.result {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 15px;
+  text-shadow: 2px 2px 30px rgb(0, 0, 0);
+}
+.error-shadow {
+  color: #ff006e;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.hex {
+  opacity: 0.7;
+  font-size: 20px;
+}
+
+
+/* Copy Button */
+.hex-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.copy-icon {
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.copy-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 25px;
+    width: 70%;
+  }
+  .card h2 {
+    font-size: 30px;
+  }
+}
