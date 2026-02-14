@@ -114,7 +114,10 @@ button:hover {
   font-size: 32px;
   font-weight: bold;
   margin: 15px;
-  text-shadow: 2px 2px 30px rgb(0, 0, 0);
+  text-shadow: 4px 4px 20px rgb(0, 0, 0);
+  white-space: nowrap;        /* يمنع النزول لسطر جديد */
+  overflow: hidden;           /* يخفي الجزء الزائد */
+  text-overflow: ellipsis;    /* يحط ... */
 }
 .error-shadow {
   color: #ff006e;
@@ -152,9 +155,9 @@ button:hover {
 
 @media (max-width: 480px) {
   .card {
-    padding: 25px;
-    width: 70%;
-  }
+  width: 90%;
+  max-width: 400px;
+}
   .card h2 {
     font-size: 30px;
   }
